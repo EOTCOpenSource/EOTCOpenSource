@@ -91,6 +91,17 @@
                         class="bg-gold text-white font-bold py-4 px-10 rounded-lg text-lg hover:bg-opacity-90 transition duration-300 shadow-gold transform hover:scale-105 inline-block">
                         Join Our Telegram Community
                     </a>
+                    <!-- Inspirational Verse: Amharic/English alternating -->
+                    <div class="mt-8 flex justify-center">
+                        <div id="verse-block"
+                            class="max-w-xl w-full text-center p-4 rounded-xl border border-gray-200 bg-white shadow">
+                            <span id="verse-am">በእናንተ ዘንድ ያለ፥ በልቡ ጥበበኛ የሆነ ሁሉ መጥቶ እግዚአብሔር ያዘዘውን ሁሉ ያድርግ።<br><span
+                                    class='text-gold font-bold'>ዘፀ. 35፥10</span></span>
+                            <span id="verse-en" style="display:none;">All who are skilled among you are to come and make
+                                everything the Lord has commanded<br><span class='text-gold font-bold'>Exodus
+                                    35:10</span></span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -98,6 +109,15 @@
         <!-- Mission, Goal, and Why Section -->
         <section id="mission" class="bg-white py-20">
             <div class="container mx-auto px-6">
+                <div class="max-w-2xl mx-auto mb-10">
+                    <div class="bg-gold bg-opacity-10 border-l-4 border-gold p-6 rounded-xl shadow-gold text-center">
+                        <p class="text-xl md:text-2xl font-semibold text-gray-900 mb-2">በእናንተ ዘንድ ያለ፥ በልቡ ጥበበኛ የሆነ ሁሉ
+                            መጥቶ እግዚአብሔር ያዘዘውን ሁሉ ያድርግ።</p>
+                        <p class="text-gold font-bold mb-2">ዘፀ. 35፥10</p>
+                        <p class="text-base md:text-lg text-gray-700 italic">All who are skilled among you are to come
+                            and make everything the Lord has commanded &mdash; Exodus 35:10</p>
+                    </div>
+                </div>
                 <div class="text-center mb-12">
                     <h2 class="text-3xl font-bold text-gray-900">Our Purpose</h2>
                     <p class="text-gray-600 mt-2">Serving the Church through technology, together.</p>
@@ -209,6 +229,19 @@
     <script>
         // Set the current year in the footer
         document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Alternate verse Amharic/English every 4 seconds
+        (function () {
+            const am = document.getElementById('verse-am');
+            const en = document.getElementById('verse-en');
+            if (!am || !en) return;
+            let showAm = true;
+            setInterval(() => {
+                showAm = !showAm;
+                am.style.display = showAm ? '' : 'none';
+                en.style.display = showAm ? 'none' : '';
+            }, 4000);
+        })();
     </script>
 </body>
 
