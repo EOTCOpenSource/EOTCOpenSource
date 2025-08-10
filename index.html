@@ -1,285 +1,457 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="img/logo.png">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/logo.png" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EOTCOpenSource - Faith Meets Code</title>
-    <!-- Tailwind CSS CDN -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome CDN (v7.0.0) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
-        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        darkMode: "class", // Enable class-based dark mode
+      };
+    </script>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        /* White icon for high contrast on gold background */
-        .icon-white {
-            color: #fff;
-        }
-
-        /* Use the Inter font family */
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-
-        /* Custom styles for a subtle background pattern if desired */
-        .hero-pattern {
-            background-color: #f8f9fa;
-        }
-
-        .text-gold {
-            color: #D4AF37;
-            /* A classic gold color */
-        }
-
-        .bg-gold {
-            background-color: #D4AF37;
-        }
-
-        .border-gold {
-            border-color: #D4AF37;
-        }
-
-        .shadow-gold {
-            box-shadow: 0 10px 15px -3px rgba(212, 175, 55, 0.2), 0 4px 6px -2px rgba(212, 175, 55, 0.1);
-        }
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      .text-gold {
+        color: #d4af37;
+      }
+      .bg-gold {
+        background-color: #d4af37;
+      }
+      .shadow-gold {
+        box-shadow: 0 10px 15px -3px rgba(212, 175, 55, 0.2),
+          0 4px 6px -2px rgba(212, 175, 55, 0.1);
+      }
+      .icon-white {
+        color: #fff;
+      }
     </style>
-</head>
+  </head>
 
-<body class="bg-gray-50 text-gray-800">
-
+  <body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-100">
     <!-- Header -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-4">
-                <!-- Your Logo Here -->
-                <img src="img/logo.png" alt="EOTCOpenSource Logo" class="h-12 w-12 rounded-full"
-                    onerror="this.onerror=null;this.src='https://placehold.co/50x50/1f2937/ffffff?text=OS';">
-                <span class="text-xl font-bold text-gray-900">EOTCOpenSource</span>
-            </div>
-            <a href="https://t.me/EOTCOpenSource"
-                class="bg-gold text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition duration-300 transform hover:scale-105 inline-flex items-center">
-                Join Us
-                <i class="fa-solid fa-arrow-right w-5 h-5 ml-2"></i>
-            </a>
-        </nav>
+
+    <header class="bg-white dark:bg-gray-800 shadow-sm sticky top-0 z-50">
+      <nav
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <div class="flex items-center space-x-4">
+          <img
+            src="./img/logo.png"
+            alt="EOTCOpenSource Logo"
+            class="h-12 w-12 rounded-full"
+            onerror="this.onerror=null;this.src='https://placehold.co/50x50/1f2937/ffffff?text=OS';"
+          />
+          <span class="text-xl font-bold text-gray-900 dark:text-gray-100"
+            >EOTCOpenSource</span
+          >
+        </div>
+        <div class="flex items-center space-x-4">
+          <!-- Theme toggle button -->
+          <button
+            id="theme-toggle"
+            class="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:scale-105 transition"
+          >
+            <i id="theme-icon" class="fa-solid fa-moon"></i>
+          </button>
+
+          <a
+            href="https://t.me/EOTCOpenSource"
+            class="bg-gold text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition duration-300 transform hover:scale-105 inline-flex items-center"
+          >
+            Join Us
+            <i class="fa-solid fa-arrow-right w-5 h-5 ml-2"></i>
+          </a>
+        </div>
+      </nav>
     </header>
 
     <!-- Hero Section -->
-    <main class="hero-pattern">
-        <section class="text-center py-20 md:py-32">
-            <div class="container mx-auto px-6">
-                <!-- Main Logo Display -->
-                <div class="flex justify-center mb-8">
-                    <img src="img/logo.png" alt="EOTCOpenSource Main Logo" class="h-36 w-36 rounded-full shadow-lg"
-                        onerror="this.onerror=null;this.src='https://placehold.co/150x150/ffffff/d4af37?text=EOTC%0AOS';">
-                </div>
-                <h1 class="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
-                    Faith Meets <span class="text-gold">Code</span>. Culture Meets <span
-                        class="text-gold">Innovation</span>.
-                </h1>
-                <p class="mt-6 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-                    A collaborative community building open-source digital tools for the Ethiopian Orthodox Tewahedo
-                    Church, its followers, and its sacred traditions.
-                </p>
-                <div class="mt-10">
-                    <a href="https://t.me/EOTCOpenSource"
-                        class="bg-gold text-white font-bold py-4 px-10 rounded-lg text-lg hover:bg-opacity-90 transition duration-300 shadow-gold transform hover:scale-105 inline-block">
-                        Join Our Telegram Community
-                    </a>
-                    <!-- Inspirational Verse: Amharic/English alternating -->
-                    <div class="mt-8 flex justify-center">
-                        <div id="verse-block"
-                            class="max-w-xl w-full text-center p-4 rounded-xl border border-gray-200 bg-white shadow">
-                            <span id="verse-am">በእናንተ ዘንድ ያለ፥ በልቡ ጥበበኛ የሆነ ሁሉ መጥቶ እግዚአብሔር ያዘዘውን ሁሉ ያድርግ።<br><span
-                                    class='text-gold font-bold'>ዘፀ. 35፥10</span></span>
-                            <span id="verse-en" style="display:none;">All who are skilled among you are to come and make
-                                everything the Lord has commanded<br><span class='text-gold font-bold'>Exodus
-                                    35:10</span></span>
-                        </div>
-                    </div>
-                </div>
+    <main class="hero-pattern dark:bg-gray-900">
+      <section class="text-center py-20 md:py-32 dark:bg-gray-900">
+        <div class="container mx-auto px-6">
+          <div class="flex justify-center mb-8">
+            <img
+              src="./img/logo.png"
+              alt="EOTCOpenSource Main Logo"
+              class="h-36 w-36 rounded-full shadow-lg dark:shadow-gray-800"
+              onerror="this.onerror=null;this.src='https://placehold.co/150x150/ffffff/d4af37?text=EOTC%0AOS';"
+            />
+          </div>
+          <h1
+            class="text-4xl md:text-6xl font-bold text-gray-900 dark:text-gray-100 leading-tight"
+          >
+            Faith Meets <span class="text-gold">Code</span>. Culture Meets
+            <span class="text-gold">Innovation</span>.
+          </h1>
+          <p
+            class="mt-6 text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto"
+          >
+            A collaborative community building open-source digital tools for the
+            Ethiopian Orthodox Tewahedo Church, its followers, and its sacred
+            traditions.
+          </p>
+          <div class="mt-10">
+            <a
+              href="https://t.me/EOTCOpenSource"
+              class="bg-gold dark:bg-yellow-700 text-white font-bold py-4 px-10 rounded-lg text-lg hover:bg-opacity-90 transition duration-300 shadow-gold dark:shadow-yellow-700 transform hover:scale-105 inline-block"
+            >
+              Join Our Telegram Community
+            </a>
+            <div class="mt-8 flex justify-center">
+              <div
+                id="verse-block"
+                class="max-w-xl w-full text-center p-4 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow dark:shadow-gray-900"
+              >
+                <span id="verse-am"
+                  >በእናንተ ዘንድ ያለ፥ በልቡ ጥበበኛ የሆነ ሁሉ መጥቶ እግዚአብሔር ያዘዘውን ሁሉ ያድርግ።<br /><span
+                    class="text-gold font-bold"
+                    >ዘፀ. 35፥10</span
+                  ></span
+                >
+                <span id="verse-en" style="display: none"
+                  >All who are skilled among you are to come and make everything
+                  the Lord has commanded<br /><span class="text-gold font-bold"
+                    >Exodus 35:10</span
+                  ></span
+                >
+              </div>
             </div>
-        </section>
-        <!-- Telegram Community Section -->
-        <section id="telegram-community" class="py-16 bg-white border-t border-b border-gray-200">
-            <div class="container mx-auto px-6 max-w-3xl">
-                <div class="text-center mb-8">
-                    <h2 class="text-3xl font-bold text-gold mb-2">Welcome to the EOTCOpenSource Telegram Community!</h2>
-                    <p class="text-xl text-gray-900 font-semibold mb-1">Hello everyone, and welcome to the
-                        EOTCOpenSource group!</p>
-                    <p class="text-lg text-gray-700 mb-2">እንኳን ደህና መጣችሁ! <span aria-label="waving hand"
-                            role="img">👋</span></p>
-                    <p class="text-base text-gray-700 mb-4">We are happy you are here. This group is for people who want
-                        to help the Ethiopian Orthodox Tewahedo Church with technology.<br>Our goal is to make free
-                        tools, like apps and websites, to help the Church and its members.</p>
-                    <p class="text-base text-gray-600 mb-4">To keep our chats clean, please use the Topics below:</p>
-                </div>
-                <div class="bg-gray-50 rounded-xl shadow p-6 mb-6">
-                    <ul class="space-y-3 text-left text-lg">
-                        <li>👋 <a href="https://t.me/EOTCOpenSource/7" class="text-gold font-semibold hover:underline"
-                                target="_blank">introduction</a>: Say hello here. Tell us your name and why you joined.
-                        </li>
-                        <li>📢 <a href="https://t.me/EOTCOpenSource/4" class="text-gold font-semibold hover:underline"
-                                target="_blank">announcements</a>: Important news from the admins.</li>
-                        <li>💡 <a href="https://t.me/EOTCOpenSource/15" class="text-gold font-semibold hover:underline"
-                                target="_blank">project-ideas</a>: Share your new ideas for projects here.</li>
-                        <li>💻 <a href="https://t.me/EOTCOpenSource/17" class="text-gold font-semibold hover:underline"
-                                target="_blank">development</a>: Talk about code and computers here.</li>
-                        <li>🎨 <a href="https://t.me/EOTCOpenSource/19" class="text-gold font-semibold hover:underline"
-                                target="_blank">design-and-ui-ux</a>: Share designs and logos here.</li>
-                        <li>✍️ <a href="https://t.me/EOTCOpenSource/21" class="text-gold font-semibold hover:underline"
-                                target="_blank">content-and-writing</a>: For working on text and translation.</li>
-                        <li>❓ <a href="https://t.me/EOTCOpenSource/13" class="text-gold font-semibold hover:underline"
-                                target="_blank">help-and-questions</a>: If you need help, ask here.</li>
-                        <li>✝️ <a href="https://t.me/EOTCOpenSource/26" class="text-gold font-semibold hover:underline"
-                                target="_blank">faith-and-resources</a>: Share links about our faith here.</li>
-                    </ul>
-                </div>
-                <div class="text-center mt-6">
-                    <p class="text-lg text-gray-900 font-semibold">We are excited to build things with you.<br>First,
-                        please go to the <a href="https://t.me/EOTCOpenSource/7"
-                            class="text-gold font-semibold hover:underline" target="_blank">introductions</a> topic and
-                        say hello!</p>
-                </div>
+          </div>
+        </div>
+      </section>
+      <section
+        id="telegram-community"
+        class="py-16 bg-white dark:bg-gray-800 border-t border-b border-gray-200 dark:border-gray-700"
+      >
+        <div class="container mx-auto px-6 max-w-3xl">
+          <div class="text-center mb-8">
+            <h2 class="text-3xl font-bold text-gold mb-2">
+              Welcome to the EOTCOpenSource Telegram Community!
+            </h2>
+            <p
+              class="text-xl text-gray-900 dark:text-gray-100 font-semibold mb-1"
+            >
+              Hello everyone, and welcome to the EOTCOpenSource group!
+            </p>
+            <p class="text-lg text-gray-700 dark:text-gray-300 mb-2">
+              እንኳን ደህና መጣችሁ! <span aria-label="waving hand" role="img">👋</span>
+            </p>
+            <p class="text-base text-gray-700 dark:text-gray-300 mb-4">
+              We are happy you are here. This group is for people who want to
+              help the Ethiopian Orthodox Tewahedo Church with technology.<br />Our
+              goal is to make free tools, like apps and websites, to help the
+              Church and its members.
+            </p>
+            <p class="text-base text-gray-600 dark:text-gray-400 mb-4">
+              To keep our chats clean, please use the Topics below:
+            </p>
+          </div>
+          <div class="bg-gray-50 dark:bg-gray-900 rounded-xl shadow p-6 mb-6">
+            <ul class="space-y-3 text-left text-lg">
+              <li>
+                👋
+                <a
+                  href="https://t.me/EOTCOpenSource/7"
+                  class="text-gold font-semibold hover:underline"
+                  target="_blank"
+                  >introduction</a
+                >: Say hello here. Tell us your name and why you joined.
+              </li>
+              <li>
+                📢
+                <a
+                  href="https://t.me/EOTCOpenSource/4"
+                  class="text-gold font-semibold hover:underline"
+                  target="_blank"
+                  >announcements</a
+                >: Important news from the admins.
+              </li>
+              <li>
+                💡
+                <a
+                  href="https://t.me/EOTCOpenSource/15"
+                  class="text-gold font-semibold hover:underline"
+                  target="_blank"
+                  >project-ideas</a
+                >: Share your new ideas for projects here.
+              </li>
+              <li>
+                💻
+                <a
+                  href="https://t.me/EOTCOpenSource/17"
+                  class="text-gold font-semibold hover:underline"
+                  target="_blank"
+                  >development</a
+                >: Talk about code and computers here.
+              </li>
+              <li>
+                🎨
+                <a
+                  href="https://t.me/EOTCOpenSource/19"
+                  class="text-gold font-semibold hover:underline"
+                  target="_blank"
+                  >design-and-ui-ux</a
+                >: Share designs and logos here.
+              </li>
+              <li>
+                ✍️
+                <a
+                  href="https://t.me/EOTCOpenSource/21"
+                  class="text-gold font-semibold hover:underline"
+                  target="_blank"
+                  >content-and-writing</a
+                >: For working on text and translation.
+              </li>
+              <li>
+                ❓
+                <a
+                  href="https://t.me/EOTCOpenSource/13"
+                  class="text-gold font-semibold hover:underline"
+                  target="_blank"
+                  >help-and-questions</a
+                >: If you need help, ask here.
+              </li>
+              <li>
+                ✝️
+                <a
+                  href="https://t.me/EOTCOpenSource/26"
+                  class="text-gold font-semibold hover:underline"
+                  target="_blank"
+                  >faith-and-resources</a
+                >: Share links about our faith here.
+              </li>
+            </ul>
+          </div>
+          <div class="text-center mt-6">
+            <p class="text-lg text-gray-900 dark:text-gray-100 font-semibold">
+              We are excited to build things with you.<br />First, please go to
+              the
+              <a
+                href="https://t.me/EOTCOpenSource/7"
+                class="text-gold font-semibold hover:underline"
+                target="_blank"
+                >introductions</a
+              >
+              topic and say hello!
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="mission" class="bg-white dark:bg-gray-800 py-20">
+        <div class="container mx-auto px-6">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-100">
+              Our Purpose
+            </h2>
+            <p class="text-gray-600 dark:text-gray-300 mt-2">
+              Serving the Church through technology, together.
+            </p>
+          </div>
+          <div class="grid md:grid-cols-3 gap-10 text-center">
+            <div
+              class="p-8 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300 dark:bg-gray-900"
+            >
+              <div
+                class="flex items-center justify-center h-16 w-16 bg-gold dark:bg-yellow-700 rounded-full mx-auto mb-4 shadow-gold dark:shadow-yellow-700"
+              >
+                <i class="fa-solid fa-lightbulb icon-white text-4xl"></i>
+              </div>
+              <h3
+                class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2"
+              >
+                Our Mission
+              </h3>
+              <p class="text-gray-600 dark:text-gray-300">
+                To build open-source digital tools that support the Church, its
+                followers, and its sacred traditions.
+              </p>
             </div>
-        </section>
-
-        <!-- Mission, Goal, and Why Section -->
-        <section id="mission" class="bg-white py-20">
-            <div class="container mx-auto px-6">
-
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl font-bold text-gray-900">Our Purpose</h2>
-                    <p class="text-gray-600 mt-2">Serving the Church through technology, together.</p>
-                </div>
-                <div class="grid md:grid-cols-3 gap-10 text-center">
-                    <!-- Our Mission -->
-                    <div
-                        class="p-8 border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300">
-                        <div
-                            class="flex items-center justify-center h-16 w-16 bg-gold rounded-full mx-auto mb-4 shadow-gold">
-                            <i class="fa-solid fa-lightbulb icon-white text-4xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Our Mission</h3>
-                        <p class="text-gray-600">To build open-source digital tools that support the Church, its
-                            followers, and its sacred traditions.</p>
-                    </div>
-                    <!-- Our Goal -->
-                    <div
-                        class="p-8 border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300">
-                        <div
-                            class="flex items-center justify-center h-16 w-16 bg-gold rounded-full mx-auto mb-4 shadow-gold">
-                            <i class="fa-solid fa-bullseye icon-white text-4xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Our Goal</h3>
-                        <p class="text-gray-600">To empower our community by making spiritual and cultural resources
-                            more accessible for generations to come.</p>
-                    </div>
-                    <!-- Why Join Us -->
-                    <div
-                        class="p-8 border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300">
-                        <div
-                            class="flex items-center justify-center h-16 w-16 bg-gold rounded-full mx-auto mb-4 shadow-gold">
-                            <i class="fa-solid fa-users icon-white text-4xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Why Join Us</h3>
-                        <p class="text-gray-600">Unite your faith with your skills. Collaborate with like-minded
-                            individuals to create a lasting digital legacy.</p>
-                    </div>
-                </div>
+            <div
+              class="p-8 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300 dark:bg-gray-900"
+            >
+              <div
+                class="flex items-center justify-center h-16 w-16 bg-gold dark:bg-yellow-700 rounded-full mx-auto mb-4 shadow-gold dark:shadow-yellow-700"
+              >
+                <i class="fa-solid fa-bullseye icon-white text-4xl"></i>
+              </div>
+              <h3
+                class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2"
+              >
+                Our Goal
+              </h3>
+              <p class="text-gray-600 dark:text-gray-300">
+                To empower our community by making spiritual and cultural
+                resources more accessible for generations to come.
+              </p>
             </div>
-        </section>
+            <div
+              class="p-8 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300 dark:bg-gray-900"
+            >
+              <div
+                class="flex items-center justify-center h-16 w-16 bg-gold dark:bg-yellow-700 rounded-full mx-auto mb-4 shadow-gold dark:shadow-yellow-700"
+              >
+                <i class="fa-solid fa-users icon-white text-4xl"></i>
+              </div>
+              <h3
+                class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2"
+              >
+                Why Join Us
+              </h3>
+              <p class="text-gray-600 dark:text-gray-300">
+                Unite your faith with your skills. Collaborate with like-minded
+                individuals to create a lasting digital legacy.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <!-- Active Projects Section -->
-        <section id="projects" class="py-20 hero-pattern">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl font-bold text-gray-900 flex items-center justify-center">
-                        <i class="fa-solid fa-folder-open w-8 h-8 mr-3 inline-block text-gold"></i>
-                        Active Projects
-                    </h2>
-                    <p class="text-gray-600 mt-2">Here's what we're building right now. Your help is needed!</p>
-                </div>
+      <section id="projects" class="py-20 hero-pattern dark:bg-gray-900">
+        <div class="container mx-auto px-6">
+          <div class="text-center mb-12">
+            <h2
+              class="text-3xl font-bold text-gray-900 dark:text-gray-100 flex items-center justify-center"
+            >
+              <i
+                class="fa-solid fa-folder-open w-8 h-8 mr-3 inline-block text-gold"
+              ></i>
+              Active Projects
+            </h2>
+            <p class="text-gray-600 dark:text-gray-300 mt-2">
+              Here's what we're building right now. Your help is needed!
+            </p>
+          </div>
+          <div
+            class="max-w-3xl mx-auto bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden p-8 border border-gray-200 dark:border-gray-700"
+          >
+            <h3
+              class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-3 flex items-center"
+            >
+              <i
+                class="fa-solid fa-book-bible w-7 h-7 mr-2 inline-block text-gold"
+              ></i>
+              80Wehadu JSON Bible
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-6">
+              We are converting all 81 books of the EOTC Bible into a clean JSON
+              format. This single file will power countless future mobile, web,
+              and desktop Bible applications for our community.
+            </p>
+            <div>
+              <div class="flex justify-between mb-1">
+                <span class="text-base font-medium text-gold"
+                  >Project Progress</span
+                >
+                <span class="text-sm font-medium text-gold"
+                  >47 / 81 Books (58%)</span
+                >
+              </div>
+              <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-4">
                 <div
-                    class="max-w-3xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden p-8 border border-gray-200">
-                    <h3 class="text-2xl font-bold text-gray-900 mb-3 flex items-center">
-                        <i class="fa-solid fa-book-bible w-7 h-7 mr-2 inline-block text-gold"></i>
-                        80Wehadu JSON Bible
-                    </h3>
-                    <p class="text-gray-600 mb-6">
-                        We are converting all 81 books of the EOTC Bible into a clean JSON format. This single file will
-                        power countless future mobile, web, and desktop Bible applications for our community.
-                    </p>
-                    <!-- Progress Bar -->
-                    <div>
-                        <div class="flex justify-between mb-1">
-                            <span class="text-base font-medium text-gold">Project Progress</span>
-                            <span class="text-sm font-medium text-gold">47 / 81 Books (58%)</span>
-                        </div>
-                        <div class="w-full bg-gray-200 rounded-full h-4">
-                            <div class="bg-gold h-4 rounded-full" style="width: 58%"></div>
-                        </div>
-                    </div>
-                    <div class="mt-8 text-center">
-                        <a href="https://github.com/EOTCOpenSource/80-weahadu" target="_blank"
-                            class="text-gold font-semibold hover:underline">
-                            View Project on GitHub &rarr;
-                        </a>
-                    </div>
-                </div>
+                  class="bg-gold dark:bg-yellow-700 h-4 rounded-full"
+                  style="width: 58%"
+                ></div>
+              </div>
             </div>
-        </section>
+            <div class="mt-8 text-center">
+              <a
+                href="https://github.com/EOTCOpenSource/80-weahadu"
+                target="_blank"
+                class="text-gold font-semibold hover:underline"
+              >
+                View Project on GitHub &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <!-- Join Community Section -->
-        <section id="join" class="bg-gray-800 text-white py-20">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold">Ready to Contribute?</h2>
-                <p class="mt-4 text-lg text-gray-300 max-w-2xl mx-auto">
-                    Join our Telegram group to connect with the community, discuss projects, and start building with us.
-                    All skills are welcome!
-                </p>
-                <div class="mt-8">
-                    <a href="https://t.me/EOTCOpenSource"
-                        class="bg-gold text-white font-bold py-4 px-10 rounded-lg text-lg hover:bg-opacity-90 transition duration-300 shadow-gold transform hover:scale-105 inline-flex items-center">
-                        <i class="fa-brands fa-telegram w-6 h-6 mr-3"></i>
-                        Join the Telegram Community
-                    </a>
-                </div>
-            </div>
-        </section>
+      <section id="join" class="bg-gray-800 dark:bg-gray-900 text-white py-20">
+        <div class="container mx-auto px-6 text-center">
+          <h2 class="text-3xl md:text-4xl font-bold">Ready to Contribute?</h2>
+          <p
+            class="mt-4 text-lg text-gray-300 dark:text-gray-200 max-w-2xl mx-auto"
+          >
+            Join our Telegram group to connect with the community, discuss
+            projects, and start building with us. All skills are welcome!
+          </p>
+          <div class="mt-8">
+            <a
+              href="https://t.me/EOTCOpenSource"
+              class="bg-gold dark:bg-yellow-700 text-white font-bold py-4 px-10 rounded-lg text-lg hover:bg-opacity-90 transition duration-300 shadow-gold dark:shadow-yellow-700 transform hover:scale-105 inline-flex items-center"
+            >
+              <i class="fa-brands fa-telegram w-6 h-6 mr-3"></i>
+              Join the Telegram Community
+            </a>
+          </div>
+        </div>
+      </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-6">
-        <div class="container mx-auto px-6 text-center">
-            <p>&copy; <span id="year"></span> EOTCOpenSource. Code for the Church. Build for Generations.</p>
-        </div>
+    <footer class="bg-gray-900 dark:bg-black text-white py-6">
+      <div class="container mx-auto px-6 text-center">
+        <p>
+          &copy; <span id="year"></span> EOTCOpenSource. Code for the Church.
+          Build for Generations.
+        </p>
+      </div>
     </footer>
 
     <script>
-        // Set the current year in the footer
-        document.getElementById('year').textContent = new Date().getFullYear();
+      // Set the current year in the footer
+      document.getElementById("year").textContent = new Date().getFullYear();
 
-        // Alternate verse Amharic/English every 4 seconds
-        (function () {
-            const am = document.getElementById('verse-am');
-            const en = document.getElementById('verse-en');
-            if (!am || !en) return;
-            let showAm = true;
-            setInterval(() => {
-                showAm = !showAm;
-                am.style.display = showAm ? '' : 'none';
-                en.style.display = showAm ? 'none' : '';
-            }, 4000);
-        })();
+      const html = document.documentElement;
+      const btn = document.getElementById("theme-toggle");
+      const icon = document.getElementById("theme-icon");
+
+      function setTheme(t) {
+        html.classList.toggle("dark", t === "dark");
+        icon.classList.toggle("fa-moon", t === "dark");
+        icon.classList.toggle("fa-sun", t !== "dark");
+        localStorage.setItem("theme", t);
+      }
+
+      // Load theme: saved or system preference
+      setTheme(
+        localStorage.getItem("theme") ||
+          (matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light")
+      );
+
+      // Toggle on click
+      btn.onclick = () =>
+        setTheme(html.classList.contains("dark") ? "light" : "dark");
+      // Alternate verse Amharic/English every 4 seconds
+      (function () {
+        const am = document.getElementById("verse-am");
+        const en = document.getElementById("verse-en");
+        if (!am || !en) return;
+        let showAm = true;
+        setInterval(() => {
+          showAm = !showAm;
+          am.style.display = showAm ? "" : "none";
+          en.style.display = showAm ? "none" : "";
+        }, 5600);
+      })();
     </script>
-</body>
-
+  </body>
 </html>
