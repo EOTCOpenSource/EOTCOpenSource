@@ -116,15 +116,16 @@
             <div class="mt-8 flex justify-center">
               <div
                 id="verse-block"
-                class="max-w-xl w-full text-center p-4 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow dark:shadow-gray-900"
+                class="relative max-w-xl h-[6.6rem] w-full text-center p-4 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow dark:shadow-gray-900"
               >
                 <span id="verse-am"
+                class="absolute inset-0 m-4"
                   >በእናንተ ዘንድ ያለ፥ በልቡ ጥበበኛ የሆነ ሁሉ መጥቶ እግዚአብሔር ያዘዘውን ሁሉ ያድርግ።<br /><span
                     class="text-gold font-bold"
                     >ዘፀ. 35፥10</span
                   ></span
                 >
-                <span id="verse-en" style="display: none"
+                <span id="verse-en" style="display: none;" class="absolute inset-0 m-4"
                   >All who are skilled among you are to come and make everything
                   the Lord has commanded<br /><span class="text-gold font-bold"
                     >Exodus 35:10</span
@@ -338,46 +339,96 @@
               Here's what we're building right now. Your help is needed!
             </p>
           </div>
-          <div
-            class="max-w-3xl mx-auto bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden p-8 border border-gray-200 dark:border-gray-700"
-          >
-            <h3
-              class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-3 flex items-center"
+          <div class="grid gap-4 md:grid-cols-2">
+            <div
+              class="max-w-3xl mx-auto bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden p-8 border border-gray-200 dark:border-gray-700"
             >
-              <i
-                class="fa-solid fa-book-bible w-7 h-7 mr-2 inline-block text-gold"
-              ></i>
-              80Wehadu JSON Bible
-            </h3>
-            <p class="text-gray-600 dark:text-gray-300 mb-6">
-              We are converting all 81 books of the EOTC Bible into a clean JSON
-              format. This single file will power countless future mobile, web,
-              and desktop Bible applications for our community.
-            </p>
-            <div>
-              <div class="flex justify-between mb-1">
-                <span class="text-base font-medium text-gold"
-                  >Project Progress</span
-                >
-                <span class="text-sm font-medium text-gold"
-                  >47 / 81 Books (58%)</span
-                >
-              </div>
-              <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-4">
+              <h3
+                class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-3 flex items-center"
+              >
+                <i
+                  class="fa-solid fa-book-bible w-7 h-7 mr-2 inline-block text-gold"
+                ></i>
+                80Wehadu JSON Bible
+              </h3>
+              <p class="text-gray-600 dark:text-gray-300 mb-6">
+                We are converting all 81 books of the EOTC Bible into a clean
+                JSON format. This single file will power countless future
+                mobile, web, and desktop Bible applications for our community.
+              </p>
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span class="text-base font-medium text-gold"
+                    >Project Progress</span
+                  >
+                  <span class="text-sm font-medium text-green-600"
+                    >81 / 81 Books (100%)</span
+                  >
+                </div>
                 <div
-                  class="bg-gold dark:bg-yellow-700 h-4 rounded-full"
-                  style="width: 58%"
-                ></div>
+                  class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-4"
+                >
+                  <div
+                    class="bg-green-500 dark:bg-green-700 h-4 rounded-full"
+                    style="width: 100%"
+                  ></div>
+                </div>
+              </div>
+              <div class="mt-8 text-center">
+                <a
+                  href="https://github.com/EOTCOpenSource/80-weahadu"
+                  target="_blank"
+                  class="text-gold font-semibold hover:underline"
+                >
+                  View Project on GitHub &rarr;
+                </a>
               </div>
             </div>
-            <div class="mt-8 text-center">
-              <a
-                href="https://github.com/EOTCOpenSource/80-weahadu"
-                target="_blank"
-                class="text-gold font-semibold hover:underline"
+
+            <div
+              class="max-w-3xl mx-auto bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden p-8 border border-gray-200 dark:border-gray-700"
+            >
+              <h3
+                class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-3 flex items-center"
               >
-                View Project on GitHub &rarr;
-              </a>
+                <i
+                  class="fa-solid fa-book-bible w-7 h-7 mr-2 inline-block text-gold"
+                ></i>
+                EOTC Bible App
+              </h3>
+              <p class="text-gray-600 dark:text-gray-300 mb-6">
+                As a community we are building a free and open-source Bible app
+                for Web, Android and iOS. It will include the full 80Wehadu Bible,
+                daily readings, and other features to help you engage with the
+                Word of God.
+              </p>
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span class="text-base font-medium text-gold"
+                    >Project Progress</span
+                  >
+                  <span class="text-sm font-medium text-gold"
+                    >Api and Design (52%)</span
+                  >
+                </div>
+                <div
+                  class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-4"
+                >
+                  <div
+                    class="bg-gold dark:bg-yellow-700 h-4 rounded-full"
+                    style="width: 52%"
+                  ></div>
+                </div>
+              </div>
+              <div class="mt-8 text-center">
+                <a
+                  href="https://github.com/EOTCOpenSource/EOTCbibleBE"
+                  target="_blank"
+                  class="text-gold font-semibold hover:underline"
+                >
+                  View Project on GitHub &rarr;
+                </a>
+              </div>
             </div>
           </div>
         </div>
